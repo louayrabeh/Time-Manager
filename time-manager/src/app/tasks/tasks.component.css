@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+  }
+.content{
+  padding: 16px;
+}
+.mat-header-cell {
+  font-size: 15px;
+  text-decoration: overline #69f0ae;
+  /*text-decoration-thickness: 3px;*/
+  font-weight: 700;
+}
+.statut{
+  text-align: center;justify-content:center;
+}
+.mat-header-cell.delete{
+  color:#f44336 !important;
+  text-decoration: overline #bcbcbc; /*rgba(255,255,255,0.7)*/
+  /*text-decoration-thickness: 3px;*/
+  font-weight: 700;
+  text-align: center;justify-content:center;
+}
+.mat-header-cell.edit{
+  color:#69f0ae !important;
+  text-decoration: overline #bcbcbc; /*rgba(255,255,255,0.7)*/
+  /*text-decoration-thickness: 3px;*/
+  font-weight: 700;
+    text-align: center;justify-content:center;
+}

@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+.mat-dialog-container{
+    width:500px !important;
+  }
+  .mat-progress-bar-fill::after {
+    background: linear-gradient(45deg, transparent, #69f0ae, transparent) !important;
+}
+
+.fc-unthemed td.fc-today, .fc-today>.fc-day-number {
+    background: #303030;
+    color: #69f0ae;
+    font-weight: bolder;
+}
+.fc-today>.fc-day-number {
+    text-decoration: overline #69f0ae;
+    
+}
+.fc-unthemed .fc-popover {
+    background-color: #303030 !important;
+}
+.fc-popover .fc-header .fc-title {
+    color:#ffffff
+}
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    background: #212121;
+}
+/*.fc-toolbar.fc-header-toolbar>.fc-left, .fc-widget-header{
+    color: #69f0ae;
+}*/
+.fc-button-primary{
+    background: #69f0ae;
+    color: #424242;
+}
+.fc-button-primary:disabled{
+    background: #69f0ae;
+    color: #424242;
+    filter: grayscale(0.2);
+}
+.fc-event, .fc-event-dot {
+    background-color: #7b1fa2;
+    border: 1px solid #7b1fa2;
+}
+.mat-tab-label{
+    font-size: 25px !important;
+    font-weight:100;
+ } 
+ .mat-card {
+    font-family: Raleway,"Helvetica Neue",sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Raleway, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,30 @@
+<mat-divider _ngcontent-ttx-c1="" class="mat-divider mat-divider-horizontal" style="background-color: #69f0ae;"
+  role="separator" aria-orientation="horizontal"></mat-divider>
+<div style="margin:25px">
+  <p style="text-decoration: underline #69f0ae;">
+    Afin de faire une amélioration en terme de réalisation des tâches, 
+  voici une analyse graphique montrant la différence entre le temps
+  prévu et le temps réel pour chaque tâche.
+  </p>
+  
+  <mat-form-field color="accent" style="right:16px;position: absolute;" appearance="outline">
+    <mat-label>
+      <mat-icon aria-hidden="false" aria-label="icon">event</mat-icon> Choisir projet
+    </mat-label>
+    <mat-select (selectionChange)=changeRatio($event)>
+      <mat-option *ngFor="let i of data" value={{i.id}}>{{i.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="content" id="content" style="margin-top:90px" #content>
+  <mat-card>
+    <div class="card-content-valign" style="padding: 16px;">
+      <canvas id="donetaskspermonth" style="height: 300px;width:600px;"></canvas>
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="card-content-valign">
+      <canvas id="sous_categperproject" style="height: 300px;width:600px;"></canvas>
+    </div>
+  </mat-card>
+</div>

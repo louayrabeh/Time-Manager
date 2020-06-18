@@ -1,0 +1,11 @@
+mat-form-field, mat-checkbox {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+  .add-button{
+    margin-top: 20px;
+    display: block;
+    width: 100% !important;
+    margin: 20px auto;
+  }

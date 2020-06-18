@@ -1,0 +1,40 @@
+<mat-divider _ngcontent-ttx-c1="" class="mat-divider mat-divider-horizontal" style="background-color: #69f0ae;"
+  role="separator" aria-orientation="horizontal"></mat-divider>
+  <div style="margin:25px">
+<button mat-raised-button color="accent" (click)="downloadPDF()"
+style="left:16px;position: absolute;">
+  Générer le rapport financier du mois {{selectedMonth}}
+</button>
+<mat-form-field color="accent" style="right:16px;position: absolute;" appearance="outline">
+  <mat-label>
+    <mat-icon aria-hidden="false" aria-label="icon">event</mat-icon> Choisir mois
+  </mat-label>
+  <mat-select (selectionChange)=changeRatio($event)>
+    <mat-option *ngFor="let i of months" value={{i.value}}>{{i.month}}</mat-option>
+  </mat-select>
+  
+    </mat-form-field>
+  </div>
+<div class="content" id="content" style="margin-top:90px" #content>
+      <mat-card>
+        <div class="card-content-valign">
+          <canvas id="financeperproject" style="height: 300px;width:600px;"></canvas>
+        </div>
+      </mat-card>
+      <div id="content" #content>
+        <h2>Financement alloué par projet</h2>
+        <mat-table [dataSource]="dataSource" matSort style="margin-top: 40px;" class="mat-elevation-z8" id="my-table">
+          <ng-container matColumnDef="projet">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Projet </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="finance">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Financement alloué </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.finance}} </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        </div>   
+</div>

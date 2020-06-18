@@ -1,0 +1,71 @@
+<mat-divider _ngcontent-ttx-c1="" class="mat-divider mat-divider-horizontal" style="background-color: #69f0ae;"
+  role="separator" aria-orientation="horizontal"></mat-divider>
+<div class="content">
+  <mat-card>
+    <mat-card-title style="text-align: center;">Ajouter un projet</mat-card-title>
+    <div *ngIf="success" style="text-align: center;color:#69f0ae" class="notification is-success">
+      Nouveau projet !! <br> Voulez-vous en ajouter un nouveau?
+    </div>
+    <div class="card-content-valign" style="padding: 16px;">
+      <mat-card-content>
+        <form [formGroup]="myForm" (ngSubmit)="submitHandler()">
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Nom projet</mat-label>
+            <input matInput placeholder="Nom projet" name="nom" formControlName="name">
+          </mat-form-field><br>
+          <mat-error *ngIf="name.invalid && name.touched">
+            Le projet doit avoir un nom
+          </mat-error>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Date début</mat-label>
+            <input matInput [matDatepicker]="pickerD" [min]="minDate" (dateInput)="inputEvent($event)" name="date_debut" formControlName="date_debut">
+            <mat-datepicker-toggle matSuffix [for]="pickerD"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #pickerD></mat-datepicker>
+          </mat-form-field><br>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Date fin</mat-label>
+            <input matInput [matDatepicker]="pickerF" [min]="minDate1" name="date_fin" formControlName="date_fin">
+            <mat-datepicker-toggle matSuffix [for]="pickerF"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #pickerF></mat-datepicker>
+          </mat-form-field><br>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Financement</mat-label>
+            <input matInput placeholder="Financement" name="financement" formControlName="financement">
+          </mat-form-field><br>
+          <mat-error *ngIf="financement.invalid && financement.touched">
+            Le projet doit avoir un financement
+          </mat-error>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>
+              <mat-icon aria-hidden="false" aria-label="icon">assignment_ind</mat-icon> Choisir employé
+            </mat-label>
+            <mat-select multiple name="employe"
+              formControlName="employe">
+              <mat-option *ngFor="let i of employee_list" value={{i._id}}>{{i.firstName}} {{i.lastName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error *ngIf="employe.invalid && employe.touched">
+            Veuillez sélectionner minimum un employé
+          </mat-error>
+          <div formArrayName="sous_categorie">
+            <div *ngFor="let sous_categ of sous_categform.controls; let i=index" [formGroupName]="i">
+              <mat-form-field appearance="outline" color="accent" class="sous_categ">
+                <mat-label>Sous-catégorie</mat-label>
+                <input matInput placeholder="Sous-catégorie" required name="sous_categ_input" formControlName="sous_categ_input">
+              </mat-form-field> &nbsp;
+              <button mat-icon-button color="warn" (click)="deletesous_categ()">
+                <mat-icon aria-hidden="false" aria-label="icon">close</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="add-button" color="primary" (click)="addsous_categ()">
+            <mat-icon aria-hidden="false" aria-label="icon">add</mat-icon> Ajouter une sous-catégorie
+          </div>
+          <button mat-raised-button [disabled]="myForm.invalid" color="accent" class="project-button">
+            Ajouter
+          </button>
+        </form>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

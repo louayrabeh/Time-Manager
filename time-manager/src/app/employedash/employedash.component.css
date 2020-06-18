@@ -1,0 +1,28 @@
+mat-sidenav-container {
+    height: 100%;
+  }
+  
+  /*mat-sidenav, mat-sidenav-content {
+    padding: 16px;
+  }*/
+  .mat-drawer-side{
+    border-right: solid 0px transparent;
+  }
+  mat-card{
+    height: 100% !important;
+    width: 100% !important;
+    border-radius: 25px;
+    padding: 0px !important;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .content{
+      padding: 16px;
+  }
+  mat-sidenav {
+    background-color: #69f0ae;
+    width: 300px;
+  }
+  

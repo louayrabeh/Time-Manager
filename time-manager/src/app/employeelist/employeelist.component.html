@@ -1,0 +1,52 @@
+ 
+<mat-divider _ngcontent-ttx-c1="" class="mat-divider mat-divider-horizontal" style="background-color: #69f0ae;"
+  role="separator" aria-orientation="horizontal"></mat-divider>
+<div class="content">
+  <div> <!--openDialog()-->
+    <button mat-raised-button color="accent" (click)="openDialog()"
+      style="float:right;margin-bottom: 20px;display: block;">
+      <mat-icon aria-hidden="false" aria-label="icon">playlist_add</mat-icon> Ajouter tache
+    </button>
+  </div>
+  <mat-form-field color="accent" appearance="outline">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="filtrer">
+  </mat-form-field>
+<div>
+  <mat-table [dataSource]="dataSource" matSort style="margin-top: 40px;" class="mat-elevation-z8">
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="userRole">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.userRole}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="confirmed">
+      <mat-header-cell class="statut" *matHeaderCellDef mat-sort-header> Statut </mat-header-cell>
+      <mat-cell *matCellDef="let element let row" style="text-align: center;justify-content:center;">
+        <button mat-flat-button color="accent" [disabled]=element.confirmed (click)="confirmed(row)">
+          <span *ngIf="element.confirmed===true">Confirmé(e)</span> 
+          <span *ngIf="element.confirmed===false">Non confirmé(e)</span> 
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="supprimer">
+      <mat-header-cell class="delete" *matHeaderCellDef> Supprimer </mat-header-cell>
+      <mat-cell *matCellDef="let row" style="text-align: center;justify-content:center;">
+        <button mat-icon-button color="warn" (click)="deleteData(row)">
+          <mat-icon aria-hidden="false" aria-label="icon">close</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row @fadeOut *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  </div>
+  <mat-paginator color="accent" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

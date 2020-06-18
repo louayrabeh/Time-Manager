@@ -1,0 +1,34 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <mat-toolbar class="example-header" color="accent" style="height: 50px;text-align: center;">Time <b>Manager</b></mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <mat-list-item matLine routerLink="/manager/analysemanager" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">multiline_chart</mat-icon>Analyse</h2>
+      </mat-list-item>
+      <mat-list-item matLine routerLink="/manager/liste_employe" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">contacts</mat-icon>Liste des employés</h2>
+      </mat-list-item>
+      <mat-list-item matLine routerLink="/manager/ajoutprojet" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">playlist_add</mat-icon>Ajouter projet</h2>
+      </mat-list-item>
+      <mat-list-item matLine routerLink="/manager/liste_projet" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">format_list_bulleted</mat-icon>Liste des projets</h2>
+      </mat-list-item>
+      <mat-list-item matLine routerLink="/manager/rendement" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">poll</mat-icon>Rendement</h2>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-toolbar style="bottom:0%;position: absolute;"> <b>Dashboard</b>Manager</mat-toolbar>
+  </mat-sidenav>
+ <mat-sidenav-content>
+  <mat-toolbar class="header" style="height: 50px;">
+    <mat-icon aria-hidden="false" aria-label="icon">face</mat-icon>&emsp;{{name.firstName}} {{name.lastName}}
+    <button mat-stroked-button color="accent" (click)="logout()"
+        style="right:16px;position: absolute;">
+        <mat-icon aria-hidden="false" aria-label="icon">power_settings_new</mat-icon> Logout
+      </button>
+  </mat-toolbar>
+   <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,31 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <mat-toolbar class="example-header" color="accent" style="height: 50px;text-align: center;">Time <b>Manager</b></mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list> <!-- 
+       routerLink="/Employedash" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link"
+        routerLink="/tasks" routerLinkActive="active-link"
+ routerLink="/analyse" routerLinkActive="active-link"
+    -->
+      <mat-list-item matLine routerLink="/employe/Employedash" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>Dashboard</h2>
+      </mat-list-item>
+      <mat-list-item matLine routerLink="/employe/tasks" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">playlist_add_check</mat-icon>Tâches</h2>
+      </mat-list-item>
+      <mat-list-item matLine routerLink="/employe/analyse" routerLinkActive="active-link">
+        <h2><mat-icon aria-hidden="false" aria-label="Example home icon">multiline_chart</mat-icon>Analyse</h2>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-toolbar style="bottom:0%;position: absolute;"> <b>Dashboard</b>Employé</mat-toolbar>
+  </mat-sidenav>
+ <mat-sidenav-content>
+  <mat-toolbar class="header" style="height: 50px;">
+    <mat-icon aria-hidden="false" aria-label="icon">face</mat-icon>&emsp;{{name.firstName}} {{name.lastName}}
+    <button mat-stroked-button color="accent" (click)="logout()" style="right:16px;position: absolute;">
+      <mat-icon aria-hidden="false" aria-label="icon">power_settings_new</mat-icon> Logout
+    </button>
+  </mat-toolbar>
+   <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

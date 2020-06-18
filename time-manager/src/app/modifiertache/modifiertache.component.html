@@ -1,0 +1,45 @@
+<h2 mat-dialog-title style="text-align: center;">{{data.title}}</h2>
+<form [formGroup]="myForm" (ngSubmit)="submitHandler()">
+  <input type="text" style="visibility: hidden;" #myinput value={{data.id}} name="id1" id={{data.id}} formControlName="_id">
+  <mat-form-field color="accent" appearance="outline">
+    <mat-label>Nom tâche</mat-label>
+    <input matInput placeholder="Nom projet" name="label" formControlName="label">
+  </mat-form-field><br>
+  <mat-form-field color="accent" appearance="outline">
+    <mat-label>
+      Choisir Projet
+    </mat-label>
+    <mat-select (selectionChange)=changeRatio($event) name="projet"
+      formControlName="projectId">
+      <mat-option *ngFor="let i of projet" value={{i._id}}>{{i.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field color="accent" appearance="outline">
+    <mat-label>
+      Choisir Sous-catégorie
+    </mat-label>
+    <mat-select name="sous_categ"
+      formControlName="subCategoryId">
+      <mat-option *ngFor="let i of sous_categ" value={{i._id}}>{{i.label}}</mat-option>
+    </mat-select><br>
+  </mat-form-field>
+  <mat-form-field color="accent" appearance="outline">
+    <mat-label>Date début</mat-label>
+    <input matInput [matDatepicker]="pickerD" [min]="minDate" [max]="maxDate" required (dateInput)="inputEvent($event)" name="startDate" formControlName="startDate">
+    <mat-datepicker-toggle matSuffix [for]="pickerD"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #pickerD></mat-datepicker>
+  </mat-form-field><br>
+  <mat-form-field color="accent" appearance="outline">
+    <mat-label>Date fin</mat-label>
+    <input matInput [matDatepicker]="pickerF" [min]="minDate1" [max]="maxDate" required name="endDate" formControlName="endDate">
+    <mat-datepicker-toggle matSuffix [for]="pickerF"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #pickerF></mat-datepicker>
+  </mat-form-field><br>
+  <mat-checkbox name="locked"
+  formControlName="locked">
+    Verrouillage
+  </mat-checkbox><br>
+  <button mat-raised-button color="accent" class="add-button">
+    Modifier Tâche
+  </button>
+</form>
